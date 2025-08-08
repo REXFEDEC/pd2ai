@@ -7,12 +7,16 @@
     <meta name="description" content="Extract and summarize PDF content with AI-powered technology">
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pdf-lib/dist/pdf-lib.min.js"></script>
 </head>
 <body>
     <div class="container">
         <header class="header">
             <h1 class="title">AI PDF Summarizer</h1>
             <p class="subtitle">Upload your PDF and get an AI-powered summary in seconds</p>
+            <div class="warning" style="margin-top:16px; color:#b91c1c; background:#fff3cd; border:1px solid #ffeeba; border-radius:6px; padding:10px; font-size:1rem;">
+                ⚠️ For best performance, please use PDFs with <strong>10 pages or fewer</strong>. Large PDFs may take a long time to process, especially for scanned/image-based files.
+            </div>
         </header>
 
         <main class="main">
@@ -45,7 +49,7 @@
             <div class="summary-section hidden" id="summarySection">
                 <div class="summary-card">
                     <div class="summary-header">
-                        <h3 class="summary-title">Summary</h3>
+                        <h3 class="summary-title" id="summaryTitle">Extracted PDF Text</h3>
                         <button class="reset-button" id="resetButton">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <polyline points="23 4 23 10 17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -64,6 +68,7 @@
         // Set the workerSrc for PDF.js
         pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js';
     </script>
+    <!-- Tesseract.js is no longer required for OCR.space, but you can keep it for fallback if desired -->
     <script src="app.js"></script>
 </body>
 </html>
