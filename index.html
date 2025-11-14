@@ -7,11 +7,12 @@
     <meta name="description" content="Extract and summarize PDF content with AI-powered technology">
     
     <!-- Redirect from pd2ai.pages.dev to pdf.goneto.space -->
-    <meta http-equiv="refresh" content="0; url=https://pdf.goneto.space">
     <script>
-      // JavaScript redirect as a fallback
-      if (window.location.hostname === 'pd2ai.pages.dev') {
-        window.location.href = 'https://pdf.goneto.space' + window.location.pathname + window.location.search + window.location.hash;
+      // Only redirect if we're on the old domain and not already being redirected
+      if (window.location.hostname === 'pd2ai.pages.dev' && 
+          !window.location.href.includes('pdf.goneto.space')) {
+        // Use replace instead of assign to prevent the current page from being saved in session history
+        window.location.replace('https://pdf.goneto.space' + window.location.pathname + window.location.search + window.location.hash);
       }
     </script>
     
